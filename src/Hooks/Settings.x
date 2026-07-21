@@ -4,6 +4,7 @@
 //
 
 #import "HookHelpers.h"
+#import "Headers/XHeaders.h"
 
 static UIFont* _Nonnull remapFont(UIFont* origFont) {
     UIFont* newFont = getDefaultFont(origFont);
@@ -252,8 +253,7 @@ static NSArray* sectionsWithNeoFreeBirdEntry(TFNItemsDataViewController* setting
 }
 %end
 
-// Every named getter (bodyFont, title1Font, ...) dispatches to one of these five
-// methods, the only ones that actually build a UIFont; remapping here covers all.
+// Displays the custom font in the NeoFreeBird settings page
 %hook TFNUIDefaultFontGroup
 - (UIFont*)fontOfSize:(CGFloat)size {
     UIFont* origFont = %orig;
@@ -272,6 +272,37 @@ static NSArray* sectionsWithNeoFreeBirdEntry(TFNItemsDataViewController* setting
     return remapFont(origFont);
 }
 - (UIFont*)monospacedDigitFontOfSize:(CGFloat)size weight:(CGFloat)weight {
+    UIFont* origFont = %orig;
+    return remapFont(origFont);
+}
+%end
+
+
+// Displays the custom font in the rest of the app
+%hook XFontCatalog
++ (UIFont*)fontForToken:(long long)token {
+    UIFont* origFont = %orig;
+    return remapFont(origFont);
+}
++ (UIFont*)customFontOfSize:(CGFloat)size
+                      weight:(long long)weight
+      scalesWithDynamicType:(BOOL)scales {
+    UIFont* origFont = %orig;
+    return remapFont(origFont);
+}
++ (UIFont*)spoofingResistantUsernameFontForToken:(long long)token {
+    UIFont* origFont = %orig;
+    return remapFont(origFont);
+}
++ (UIFont*)monospaceFixedFontOfSize:(CGFloat)size {
+    UIFont* origFont = %orig;
+    return remapFont(origFont);
+}
++ (UIFont*)contentFontWithOffset:(CGFloat)offset weight:(long long)weight {
+    UIFont* origFont = %orig;
+    return remapFont(origFont);
+}
++ (UIFont*)tabularDigitsFontOfSize:(CGFloat)size weight:(CGFloat)weight {
     UIFont* origFont = %orig;
     return remapFont(origFont);
 }

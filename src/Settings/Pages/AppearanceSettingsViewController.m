@@ -9,6 +9,7 @@
 #import "Core/BHTBundle.h"
 #import "Core/BHTSettings.h"
 #import "Headers/TWHeaders.h"
+#import "Headers/XHeaders.h"
 #import "Settings/ModernSettingsCells.h"
 
 @interface AppearanceSettingsViewController () <UIFontPickerViewControllerDelegate>
@@ -177,6 +178,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshAllTabViews];
         });
+    } else if ([key isEqualToString:@"custom_fonts"]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self refreshAllFonts];
+        });
     } else if ([key isEqualToString:@"enable_dim_theme"]) {
         UIAlertController* alertController =
             [UIAlertController alertControllerWithTitle:[[BHTBundle sharedBundle]
@@ -195,6 +200,15 @@
         [alertController addAction:restartAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+#pragma mark - Font Refresh
+
+- (void)refreshAllFonts {
+    // XFontCatalog caches fonts internally, so already-fetched entries need
+    // invalidating before the broadcast below can make any difference.
+    [objc_getClass("XFontCatalog") resetCachedFonts];
+    [objc_getClass("TAEFontSettings") _fontSizeSettingsDidChange];
 }
 
 #pragma mark - Font Pickers
@@ -258,6 +272,9 @@
     }
     [self updateVisibleToggles];
     [self.tableView reloadData];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"custom_fonts"]) {
+        [self refreshAllFonts];
+    }
     [viewController.navigationController popViewControllerAnimated:YES];
 }
 

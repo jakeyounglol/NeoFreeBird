@@ -20,6 +20,11 @@
 - (UIFont*)monospacedDigitFontOfSize:(CGFloat)size weight:(CGFloat)weight;
 @end
 
+@interface TAEFontSettings : NSObject
++ (void)_fontSizeSettingsDidChange;
+@end
+
+
 @protocol TAEColorPalette
 - (id)colorPalette;
 - (UIColor*)primaryColorForOption:(NSUInteger)colorOption;
