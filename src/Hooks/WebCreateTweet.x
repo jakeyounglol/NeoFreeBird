@@ -539,12 +539,13 @@ static NSString* createTweetPath(void) {
 static void prewarmCreateTweetXTID(void) { refreshXTIDForMethodPath(@"POST", createTweetPath()); }
 
 
+
 static NSString* transactionIdForRequest(NSURLRequest* request) {
     NSURL* url = request.URL;
-    NSString* method = (request.HTTPMethod ?: @"POST").uppercaseString;
-    if (![method isEqualToString:@"POST"] || ![url.path containsString:@"/graphql/"]) {
+    if (url.path.length == 0) {
         return nil;
     }
+    NSString* method = (request.HTTPMethod ?: @"POST").uppercaseString;
 
     NSString* key = xtidKey(method, url.path);
     NSString* cached = cachedXTIDForKey(key);
@@ -848,8 +849,11 @@ static BOOL resolveWebCreds(NSString* userID, NSString** outAuthToken, NSString*
 
 static BOOL isCreateTweetURL(NSURL* url) { return url && [url.path hasSuffix:@"/CreateTweet"]; }
 
+static BOOL isAccountURL(NSURL* url) { return url && ([url.path containsString:@"/1.1/account"] 
+|| [url.path containsString:@"/1.1/users/"]); }
+
 // CreateTweet needs to go through the web path, otherwise AppAttest kicks in
-static BOOL isWriteRequest(NSURL* url) { return isCreateTweetURL(url); }
+static BOOL isWriteRequest(NSURL* url) { return isCreateTweetURL(url) || isAccountURL(url); }
 
 static NSURL* webEquivalentURL(NSURL* url) {
     if (!isWriteRequest(url)) {
@@ -921,6 +925,11 @@ static void applyWebAuth(NSMutableURLRequest* request, NSString* authToken, NSSt
     if (isWrite) {
         [request setValue:@"OAuth2Session" forHTTPHeaderField:@"x-twitter-auth-type"];
         [request setValue:@"yes" forHTTPHeaderField:@"x-twitter-active-user"];
+        if ([request.URL.host isEqualToString:@"api.twitter.com"]) {
+            NSURLComponents* c = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
+            c.host = @"api.x.com";
+            request.URL = c.URL;
+        }
     }
     if (ct0.length) {
         [request setValue:ct0 forHTTPHeaderField:@"x-csrf-token"];
