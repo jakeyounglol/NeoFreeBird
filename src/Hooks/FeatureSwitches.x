@@ -168,6 +168,16 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @(![BHTSettings boolForKey:@"hide_grok_analyze"]);
     }
 
+
+    if ([key isEqualToString:@"grok_ios_grok_bot_upsells_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_sidebar_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_home_header_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_home_hero_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_preset_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_tab_icon_enabled"]) {
+        return @NO;
+    }
+
     // Session token appended to shared/copied links (&t=)
     if ([key isEqualToString:@"rehire_share_update_url_enabled"]) {
         return @NO;
