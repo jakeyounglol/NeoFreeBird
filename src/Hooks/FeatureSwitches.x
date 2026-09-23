@@ -244,6 +244,10 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @YES;
     }
 
+    if ([key isEqualToString:
+             @"home_timeline_foreground_refresh_min_background_seconds"]) 
+    {return [BHTSettings boolForKey:@"no_focus_lost"] ? @(315360000.0) : nil;}
+
     // Communities, Spaces, News and Grok are enabled outright for every account.
     if ([key isEqualToString:@"ai_trends_ios_enable_news_tab"] ||
         [key isEqualToString:@"voice_rooms_consumption_enabled"] ||
@@ -434,6 +438,17 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
     return override ? override.integerValue : %orig;
 }
 
+- (double)doubleForKey:(NSString*)key {
+    NSNumber* override = FeatureSwitchOverrideValueForKey(key);
+    return override ? override.doubleValue : %orig;
+}
+
+- (double)unsafePeekDoubleForKey:(NSString*)key {
+    NSNumber* override = FeatureSwitchOverrideValueForKey(key);
+    return override ? override.doubleValue : %orig;
+}
+
+
 // Some reads, like the default captions setup, only consult the value when the
 // switch reports a non-default one.
 - (BOOL)hasNonDefaultValueForKey:(NSString*)key {
@@ -477,6 +492,17 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
 - (BOOL)hasNonDefaultValueForKey:(NSString*)key {
     return FeatureSwitchOverrideValueForKey(key) ? YES : %orig;
 }
+
+- (double)doubleForKey:(NSString*)key {
+    NSNumber* override = FeatureSwitchOverrideValueForKey(key);
+    return override ? override.doubleValue : %orig;
+}
+
+- (double)unsafePeekDoubleForKey:(NSString*)key {
+    NSNumber* override = FeatureSwitchOverrideValueForKey(key);
+    return override ? override.doubleValue : %orig;
+}
+
 
 %end
 
