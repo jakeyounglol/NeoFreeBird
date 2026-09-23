@@ -1,7 +1,7 @@
 {
   "name": "NeoFreeBird",
   "subtitle": "A modified Twitter app, with branding reverts, BHTwitter and other QoL modifications.",
-  "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v6/icon_rounded.png",
+  "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/images/icon_rounded.png",
   "headerURL": "https://pbs.twimg.com/profile_banners/1878595268255297537/1755453861/1500x500",
   "website": "https://github.com/orionblur/NeoFreeBird",
   "tintColor": "#1DA1F2",
@@ -16,7 +16,7 @@
       "developerName": "actuallyaridan, nyaathea, timi2506, theacrat, orionblur",
       "subtitle": "NeoFreeBird version 6.7.0",
       "localizedDescription": "NeoFreeBird-BHTwitter, changed to look like the app before the rebrand.",
-      "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v6/icon_rounded.png",
+      "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/images/icon_rounded.png",
       "tintColor": "#1DA1F2",
       "category": "lifestyle",
       "screenshots": [
