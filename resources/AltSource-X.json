@@ -1,7 +1,7 @@
 {
   "name": "NeoFreeBird",
   "subtitle": "A modified Twitter app with BHTwitter and other QoL modifications.",
-  "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/images/x_icon_rounded.png",
+  "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/resources/x_icon_rounded.png",
   "headerURL": "https://pbs.twimg.com/profile_banners/1878595268255297537/1755453861/1500x500",
   "website": "https://github.com/orionblur/NeoFreeBird",
   "tintColor": "#000000",
@@ -10,72 +10,27 @@
       "name": "X",
       "bundleIdentifier": "com.atebits.Tweetie2",
       "developerName": "actuallyaridan, nyaathea, timi2506, theacrat, orionblur",
-      "subtitle": "NeoFreeBird version 6.7.1",
+      "subtitle": "NeoFreeBird version 7.0.0",
       "localizedDescription": "NeoFreeBird-BHTwitter",
-      "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/images/x_icon_rounded.png",
+      "iconURL": "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/resources/x_icon_rounded.png",
       "tintColor": "#000000",
       "category": "lifestyle",
       "screenshots": [
-        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v6/images/timeline/timeline1.png",
-        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v6/images/timeline/timeline2.png",
-        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v6/images/timeline/timeline3.png",
-        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v6/images/timeline/timeline4.png",
-        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v6/images/timeline/timeline5.png"
+        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/resources/timeline/timeline1.png",
+        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/resources/timeline/timeline2.png",
+        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/resources/timeline/timeline3.png",
+        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/resources/timeline/timeline4.png",
+        "https://raw.githubusercontent.com/orionblur/NeoFreeBird/v7/resources/timeline/timeline5.png"
       ],
       "versions": [
         {
           "version": "12.28.1",
           "buildVersion": "2",
           "date": "2026-09-24T03:47:43Z",
-          "downloadURL": "https://github.com/orionblur/NeoFreeBird/releases/download/v6.7.1/orionblur-NFB-BHTwitter-sideloaded-X_6.7.1_12.28.1.ipa",
-          "size": 262086605,
+          "downloadURL": "https://github.com/orionblur/NeoFreeBird/releases/download/v7.0.0/orionblur-NFB-BHTwitter-sideloaded-X_7.0.0_12.28.1.ipa",
+          "size": 262096623,
           "minOSVersion": "15.0",
-          "localizedDescription": "- Added option to hide Message button on tweets\n- Updated X to 12.28.1\n- Removed the “Try Grok Bot” button"
-        },
-        {
-          "version": "12.26",
-          "buildVersion": "18",
-          "date": "2026-09-14T00:38:02Z",
-          "downloadURL": "https://github.com/orionblur/NeoFreeBird/releases/download/v6.7.0/orionblur-NFB-BHTwitter-sideloaded-X_6.7.0_12.26.ipa",
-          "size": 250600859,
-          "minOSVersion": "15.0",
-          "localizedDescription": "New Features\n- Updated X to 12.26 (adds scheduled tweets, not my work though)\n- Added ability to use Tenor GIFs instead of GIPHY\n- Added option to always download the highest-quality MP4 file from media downloads\n- Added option to stop X from losing focus when staying out of the app for a long time\n\nFixes\n- Fixed Japanese and Russian localizations\n- Fixed the theme color not showing on horizontal scroll bars\n- Fixed the Twitter icon in the top-left corner not tinting on iPad"
-        },
-        {
-          "version": "12.21",
-          "buildVersion": "26",
-          "date": "2026-09-04T02:07:56Z",
-          "downloadURL": "https://github.com/orionblur/NeoFreeBird/releases/download/v6.6.1/orionblur-NFB-BHTwitter-sideloaded-X_6.6.1_12.21.ipa",
-          "size": 251173328,
-          "minOSVersion": "15.0",
-          "localizedDescription": "Version 6.6.1\n\nFixes\n- Fixed voice message downloading (now requires 2 fingers with a long press)\n- Fixed a crash that would happen when encountering any confirmation prompt"
-        },
-        {
-          "version": "12.21",
-          "buildVersion": "1",
-          "date": "2026-09-03T00:48:51Z",
-          "downloadURL": "https://github.com/orionblur/NeoFreeBird/releases/download/v6.6.0/orionblur-NFB-BHTwitter-sideloaded-X_6.6.0_12.21.ipa",
-          "size": 251172512,
-          "minOSVersion": "15.0",
-          "localizedDescription": "New Features\n- Updated X to 12.21\n- Added ability to remove retweets of tweets from users who’ve blocked you\n- Doomscrolling can now be turned off with disabling video scroll\n\n**Fixes**\n- Fixed X branding in newer versions\n- Added Turkish, Japanese, and Spanish localizations\n\nKnown Issues\n- Downloading voice messages and bypassing screenshot detection are broken, will be fixed soon™."
-        },
-        {
-          "version": "12.15",
-          "buildVersion": "11",
-          "date": "2026-08-27T00:27:58Z",
-          "downloadURL": "https://github.com/orionblur/NeoFreeBird/releases/download/v6.5.1/orionblur-NFB-BHTwitter-sideloaded-X_6.5.1_12.15.ipa",
-          "size": 231165488,
-          "minOSVersion": "15.0",
-          "localizedDescription": "New Features\n- Added option to disable the new media carousel (switches back to old grid view)\n\nFixes\n- Fixed the “Confirm Follow” feature\n- Added more Japanese translations\n- Changed tap to pause to use 2 fingers instead of one (this now allows you to dismiss the media view)\n- The in-app browser is off by default in LiveContainer installs\n- Fixed a hang on first startup in LiveContainer installs"
-        },
-        {
-          "version": "12.15",
-          "buildVersion": "1",
-          "date": "2026-08-16T20:12:24Z",
-          "downloadURL": "https://github.com/orionblur/NeoFreeBird/releases/download/v6.5.0/orionblur-NFB-BHTwitter-sideloaded-X_6.5.0_12.15.ipa",
-          "size": 231135076,
-          "minOSVersion": "15.0",
-          "localizedDescription": "Updated to X version 12.15\n\nNew Features\n- Added option to see where an account is located in a tweet. Can spillover into next line at times\n- Added option to disable screenshot detection in XChat\n\nFixes\n- Fixes the “Restore Video Timestamp” option to prevent crashing on newer versions (fixes #23)\n- Added back the theme color to the horizontal scroll bar (fixes #27)\n- Forced the “more” bar to always be present (this was only an iPad issue)\n- Fixed the video timestamp not reflecting the custom font\n- Moved “Copy Profile Info” to the profile overflow menu. This now means you can’t copy profile info from your own profile, but you can click “Edit profile” and get that, so not a massive loss\n- Fixed bookmarked posts from verified accounts not followed not showing when the option to hide verified tweets was on\n"
+          "localizedDescription": "- Added option to hide Message button on tweets\n- Updated X to 12.28.1\n- Removed the “Try Grok Bot” button\n- Added new login flow"
         }
       ],
       "appPermissions": {
